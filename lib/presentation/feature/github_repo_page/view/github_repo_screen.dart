@@ -7,7 +7,8 @@ import 'package:github_repo_list/presentation/feature/github_repo_page/component
 import 'package:github_repo_list/presentation/feature/github_repo_page/components/repo_shimmer.dart';
 import 'package:github_repo_list/presentation/feature/github_repo_page/view_model/github_repo_view_model.dart';
 
-class GithubRepoScreen extends BaseAdaptiveScreen<GithubRepoViewModel, GithubRepoArgument> {
+class GithubRepoScreen
+    extends BaseAdaptiveScreen<GithubRepoViewModel, GithubRepoArgument> {
   const GithubRepoScreen({super.key, required super.arguments});
 
   @override

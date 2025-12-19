@@ -11,7 +11,6 @@ class RepoList extends StatelessWidget {
   Widget build(BuildContext context) {
     final viewModel = context.getViewModel<GithubRepoViewModel>();
 
-
     return viewModel.stateListener.buildFor(
       select: (state) => state.repoList,
       builder: (context, state) {

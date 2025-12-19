@@ -1,25 +1,12 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:github_repo_list/presentation/base/base_argument.dart';
 import 'package:github_repo_list/presentation/base/base_state.dart';
+import 'package:github_repo_list/presentation/base/base_state_holder.dart';
 
-abstract class BaseViewModel<A extends BaseArgument, S extends BaseState> {
-  final _baseState = ValueNotifier<BaseState?>(null);
-  final ValueNotifier<S> _state;
-
-  ValueListenable<BaseState?> get baseState => _baseState;
-  ValueListenable<S> get stateListener => _state;
-
-  @protected
-  S get currentState => _state.value;
-
-  BaseViewModel(S initialState) : _state = ValueNotifier(initialState);
+abstract class BaseViewModel<A extends BaseArgument, S extends BaseState> extends BaseStateHolder<S> {
+  BaseViewModel(super.initialState);
 
   void onViewReady({A? argument}) {}
-
-  @protected
-  void updateState(S newState) {
-    _state.value = newState;
-  }
 
   @protected
   void navigateTo({
@@ -28,16 +15,15 @@ abstract class BaseViewModel<A extends BaseArgument, S extends BaseState> {
     bool isReplace = false,
     bool isClearBackStack = false,
   }) {
-    _baseState.value = NavigateState(
+    updateBaseState(NavigateState(
       routePath: routePath,
       arguments: arguments,
       isReplace: isReplace,
       isClearBackStack: isClearBackStack,
-    );
+    ));
   }
 
   void onDispose() {
-    _baseState.dispose();
-    _state.dispose();
+    disposeBaseState();
   }
 }

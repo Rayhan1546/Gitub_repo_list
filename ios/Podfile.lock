@@ -27,12 +27,6 @@ PODS:
     - sqlite3/fts5
     - sqlite3/perf-threadsafe
     - sqlite3/rtree
-  - Superscript (0.1.17)
-  - SuperwallKit (4.0.0):
-    - Superscript (= 0.1.17)
-  - superwallkit_flutter (0.0.1):
-    - Flutter
-    - SuperwallKit (= 4.0.0)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
@@ -40,13 +34,10 @@ DEPENDENCIES:
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - sqflite_darwin (from `.symlinks/plugins/sqflite_darwin/darwin`)
   - sqlite3_flutter_libs (from `.symlinks/plugins/sqlite3_flutter_libs/darwin`)
-  - superwallkit_flutter (from `.symlinks/plugins/superwallkit_flutter/ios`)
 
 SPEC REPOS:
   trunk:
     - sqlite3
-    - Superscript
-    - SuperwallKit
 
 EXTERNAL SOURCES:
   Flutter:
@@ -59,8 +50,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/sqflite_darwin/darwin"
   sqlite3_flutter_libs:
     :path: ".symlinks/plugins/sqlite3_flutter_libs/darwin"
-  superwallkit_flutter:
-    :path: ".symlinks/plugins/superwallkit_flutter/ios"
 
 SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
@@ -69,9 +58,6 @@ SPEC CHECKSUMS:
   sqflite_darwin: 5a7236e3b501866c1c9befc6771dfd73ffb8702d
   sqlite3: 7559e33dae4c78538df563795af3a86fc887ee71
   sqlite3_flutter_libs: 58ae36c0dd086395d066b4fe4de9cdca83e717b3
-  Superscript: 9854c733dd673a2cbc5dd9f919bf31e2b50345b1
-  SuperwallKit: 4ef491d2d0ad623b72d9525710cb42bf6147ccb2
-  superwallkit_flutter: 8c277a469699a854fd33030227648cf451959ae5
 
 PODFILE CHECKSUM: b109a95a7f51f46bdeba7ead98d72f650de1461c
 

@@ -26,7 +26,6 @@ dependencies:
   flutter_dotenv: 5.2.1
   logger: 2.5.0
   flutter_secure_storage: 9.2.4
-  superwallkit_flutter: 2.0.1
 
 dev_dependencies:
   flutter_test:

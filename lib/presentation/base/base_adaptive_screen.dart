@@ -6,8 +6,7 @@ import 'package:github_repo_list/presentation/base/base_state.dart';
 import 'package:github_repo_list/presentation/base/base_view_model.dart';
 import 'package:github_repo_list/presentation/navigation/app_router.dart';
 
-abstract class BaseAdaptiveScreen<VM extends BaseViewModel,
-    A extends BaseArgument> extends StatefulWidget {
+abstract class BaseAdaptiveScreen<VM extends BaseViewModel, A extends BaseArgument> extends StatefulWidget {
   final A? arguments;
 
   const BaseAdaptiveScreen({super.key, required this.arguments});
@@ -20,8 +19,7 @@ abstract class BaseAdaptiveScreen<VM extends BaseViewModel,
       _BaseAdaptiveScreenState<VM, A>();
 }
 
-class _BaseAdaptiveScreenState<VM extends BaseViewModel, A extends BaseArgument>
-    extends State<BaseAdaptiveScreen<VM, A>> {
+class _BaseAdaptiveScreenState<VM extends BaseViewModel, A extends BaseArgument> extends State<BaseAdaptiveScreen<VM, A>> {
   late final A? _arguments;
   late final VM _viewModel;
   final diModule = DIModule();
@@ -30,13 +28,6 @@ class _BaseAdaptiveScreenState<VM extends BaseViewModel, A extends BaseArgument>
   void initState() {
     super.initState();
     _initialize();
-  }
-
-  @override
-  void dispose() {
-    _viewModel.onDispose();
-    diModule.disposeViewModel<VM>();
-    super.dispose();
   }
 
   void _initialize() {
@@ -98,7 +89,6 @@ class _BaseAdaptiveScreenState<VM extends BaseViewModel, A extends BaseArgument>
   }
 
   @override
-  @override
   Widget build(BuildContext context) {
     return BaseProvider(
       viewModel: _viewModel,
@@ -106,5 +96,12 @@ class _BaseAdaptiveScreenState<VM extends BaseViewModel, A extends BaseArgument>
         return widget.buildView(context);
       },
     );
+  }
+
+  @override
+  void dispose() {
+    _viewModel.onDispose();
+    diModule.disposeViewModel<VM>();
+    super.dispose();
   }
 }

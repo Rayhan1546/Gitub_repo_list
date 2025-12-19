@@ -21,9 +21,8 @@ class BaseProvider<T> extends InheritedWidget {
           ),
         );
 
-  static T of<T>(BuildContext context) {
-    final provider =
-        context.dependOnInheritedWidgetOfExactType<BaseProvider<T>>();
+  static T read<T>(BuildContext context) {
+    final provider = context.getInheritedWidgetOfExactType<BaseProvider<T>>();
     assert(provider != null, 'No BaseProvider<$T> found in context');
     return provider!.viewModel;
   }

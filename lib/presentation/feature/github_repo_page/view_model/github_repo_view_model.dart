@@ -5,13 +5,15 @@ import 'package:github_repo_list/presentation/feature/github_repo_page/argument/
 import 'package:github_repo_list/presentation/feature/github_repo_page/view_model/github_repo_state.dart';
 
 class GithubRepoViewModel extends BaseViewModel<GithubRepoArgument, GithubRepoState> {
-  final GitRepoUseCase gitRepoUseCase;
-  final TokenManager tokenManager;
+  final GitRepoUseCase _gitRepoUseCase;
+  final TokenManager _tokenManager;
 
   GithubRepoViewModel({
-    required this.gitRepoUseCase,
-    required this.tokenManager,
-  }) : super(GithubRepoState.initial());
+    required GitRepoUseCase gitRepoUseCase,
+    required TokenManager tokenManager,
+  })  : _tokenManager = tokenManager,
+        _gitRepoUseCase = gitRepoUseCase,
+        super(GithubRepoState.initial());
 
   @override
   void onViewReady({GithubRepoArgument? argument}) {
@@ -20,11 +22,7 @@ class GithubRepoViewModel extends BaseViewModel<GithubRepoArgument, GithubRepoSt
   }
 
   void _getCredentialData() async {
-    final loginData = await tokenManager.getLoginCredential();
-
-    print(loginData?.userName ?? '');
-    print(loginData?.refreshToken ?? '');
-    print(loginData?.token ?? '');
+    final loginData = await _tokenManager.getLoginCredential();
   }
 
   Future<void> onRefresh() async {
@@ -34,7 +32,7 @@ class GithubRepoViewModel extends BaseViewModel<GithubRepoArgument, GithubRepoSt
   }
 
   Future<void> _getRepoList() async {
-    final repoList = await gitRepoUseCase.getGitRepositories();
+    final repoList = await _gitRepoUseCase.getGitRepositories();
 
     updateState(currentState.copyWith(
       repoList: repoList,
